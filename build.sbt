@@ -8,19 +8,12 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.3"
 
 libraryDependencies += guice
 
-resolvers ++= Seq(
-  "IxiaS Releases" at "http://maven.ixias.net.s3-ap-northeast-1.amazonaws.com/releases"
-)
-
 libraryDependencies ++= Seq(
-  "net.ixias" %% "ixias"      % "1.1.20",
-  "net.ixias" %% "ixias-aws"  % "1.1.20",
-  "net.ixias" %% "ixias-play" % "1.1.20",
-  "ch.qos.logback" % "logback-classic"      % "1.1.+",
+  "com.typesafe.play" %% "play-slick" % "5.0.0",
 
   evolutions,
   // evolutionsのバージョン指定
