@@ -28,11 +28,7 @@ class KeepTable @Inject()(
     def created_at  = column[LocalDateTime]("created_at")
     def modified_at = column[LocalDateTime]("modified_at")
 
-    /*  DB <=> Scala の相互のmapping定義
-     *  コンパニオンオブジェクトにはtupledメソッドは使えないので、この書き方。
-     *  case classへのマッピングなら、簡易verでもOK.
-     *  def * = (id.?, text, created_at, modified_at) <> (Try.tupled, Try.unapply)
-     */
+    //  DB <=> Scala の相互のmapping定義
     def * = (id.?, text, created_at, modified_at).<>(
       // Tuple(table) => Model
       (t: TableElementTuple) => Keep(
