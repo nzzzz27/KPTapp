@@ -1,9 +1,9 @@
-package app.infrastructure.model
+package app.domain.model
 
 import java.time.LocalDateTime
 
-import app.infrastructure.model.Problem
-import app.infrastructure.model.Tag
+import app.domain.model.Problem
+import app.domain.model.Tag
 
 import ProblemTag._
 case class ProblemTag(

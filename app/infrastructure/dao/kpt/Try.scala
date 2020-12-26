@@ -1,4 +1,4 @@
-package app.infrastructure.db
+package app.infrastructure.dao
 
 import java.time.LocalDateTime
 import javax.inject.Inject
@@ -6,25 +6,31 @@ import play.api.db.slick.DatabaseConfigProvider
 import play.api.db.slick.HasDatabaseConfigProvider
 import slick.jdbc.JdbcProfile
 
-import app.infrastructure.model.Keep
+import app.domain.model.Problem
+import app.domain.model.Try
+import app.domain.model.Try._
 
-class KeepTable @Inject()(
+class TryTable @Inject()(
   protected val dbConfigProvider: DatabaseConfigProvider,
 ) extends HasDatabaseConfigProvider[JdbcProfile] {
   import profile.api._
 
   type TableElementTuple = (
-    Option[Keep.Id],
+    Option[Id],
+    Problem.Id,
     String,
+    Short,
     LocalDateTime,
     LocalDateTime
   )
 
   private val query = TableQuery[TableColumn]
 
-  private class TableColumn(tag: Tag) extends Table[Keep](tag, "Keep") {
-    def id          = column[Keep.Id]      ("id", O.PrimaryKey, O.AutoInc)
+  private class TableColumn(tag: Tag) extends Table[Try](tag, "Try") {
+    def id          = column[Id]           ("id", O.PrimaryKey, O.AutoInc)
+    def problemId   = column[Problem.Id]   ("problem_id")
     def text        = column[String]       ("text")
+    def status      = column[Short]        ("status", O.Default(0))
     def created_at  = column[LocalDateTime]("created_at")
     def modified_at = column[LocalDateTime]("modified_at")
 
@@ -33,14 +39,14 @@ class KeepTable @Inject()(
      *  case classへのマッピングなら、簡易verでもOK.
      *  def * = (id.?, text, created_at, modified_at) <> (Try.tupled, Try.unapply)
      */
-    def * = (id.?, text, created_at, modified_at) <> (
+    def * = (id.?, problemId, text, status, created_at, modified_at).<>(
       // Tuple(table) => Model
-      (t: TableElementTuple) => Keep(
-        t._1, t._2, t._3, t._4
+      (t: TableElementTuple) => Try(
+        t._1, t._2, t._3, t._4, t._5, t._6
       ),
       // Model => Tuple(table)
-      (v: Keep) => Keep.unapply(v).map { t => (
-        t._1, t._2, LocalDateTime.now(), LocalDateTime.now()
+      (v: Try) => Try.unapply(v).map { t => (
+        t._1, t._2, t._3, t._4, LocalDateTime.now(), LocalDateTime.now()
       )}
     )
   }

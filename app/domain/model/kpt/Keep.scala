@@ -1,4 +1,4 @@
-package app.infrastructure.model
+package app.domain.model
 
 import java.time.LocalDateTime
 

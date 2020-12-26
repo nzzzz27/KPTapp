@@ -1,8 +1,8 @@
-package app.infrastructure.model
+package app.domain.model
 
 import java.time.LocalDateTime
 
-import app.infrastructure.model.Tag
+import app.domain.model.Tag
 
 import KeepTag._
 case class KeepTag(

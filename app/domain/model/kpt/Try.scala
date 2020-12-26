@@ -1,8 +1,8 @@
-package app.infrastructure.model
+package app.domain.model
 
 import java.time.LocalDateTime
 
-import app.infrastructure.model.Problem
+import app.domain.model.Problem
 
 import Try._
 case class Try(

@@ -1,4 +1,4 @@
-package app.infrastructure.db
+package app.infrastructure.dao
 
 import java.time.LocalDateTime
 import javax.inject.Inject
@@ -6,7 +6,7 @@ import play.api.db.slick.DatabaseConfigProvider
 import play.api.db.slick.HasDatabaseConfigProvider
 import slick.jdbc.JdbcProfile
 
-import app.infrastructure.model.Problem
+import app.domain.model.Problem
 
 class ProblemTable @Inject()(
   protected val dbConfigProvider: DatabaseConfigProvider,
@@ -33,7 +33,7 @@ class ProblemTable @Inject()(
      *  case classへのマッピングなら、簡易verでもOK.
      *  def * = (id.?, text, created_at, modified_at) <> (Try.tupled, Try.unapply)
      */
-    def * = (id.?, text, created_at, modified_at) <> (
+    def * = (id.?, text, created_at, modified_at).<>(
       // Tuple(table) => Model
       (t: TableElementTuple) => Problem(
         t._1, t._2, t._3, t._4

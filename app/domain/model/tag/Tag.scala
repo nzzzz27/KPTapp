@@ -1,7 +1,7 @@
-package app.infrastructure.model
+package app.domain.model
 
 import java.time.LocalDateTime
-import app.infrastructure.model.TagColor
+import app.domain.model.TagColor
 
 import Tag._
 case class Tag(

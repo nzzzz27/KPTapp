@@ -1,4 +1,4 @@
-package app.infrastructure.db
+package app.infrastructure.dao
 
 import java.time.LocalDateTime
 import javax.inject.Inject
@@ -6,9 +6,9 @@ import play.api.db.slick.DatabaseConfigProvider
 import play.api.db.slick.HasDatabaseConfigProvider
 import slick.jdbc.JdbcProfile
 
-import app.infrastructure.model.ProblemTag
-import app.infrastructure.model.{ Tag => KptTag }
-import app.infrastructure.model.Problem
+import app.domain.model.ProblemTag
+import app.domain.model.{ Tag => KptTag }
+import app.domain.model.Problem
 
 class ProblemTagTable @Inject()(
   protected val dbConfigProvider: DatabaseConfigProvider,
@@ -33,7 +33,7 @@ class ProblemTagTable @Inject()(
     def modified_at = column[LocalDateTime]("modified_at")
 
     // DB <=> Scala の相互のmapping定義
-    def * = (id.?, tagId, problemId, created_at, modified_at) <> (
+    def * = (id.?, tagId, problemId, created_at, modified_at).<>(
       // Tuple(table) => Model
       (t: TableElementTuple) => ProblemTag(
         t._1, t._2, t._3, t._4, t._5

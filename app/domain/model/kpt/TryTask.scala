@@ -1,8 +1,8 @@
-package app.infrastructure.model
+package app.domain.model
 
 import java.time.LocalDateTime
 
-import app.infrastructure.model.Try
+import app.domain.model.Try
 
 import TryTask._
 case class TryTask(

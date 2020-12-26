@@ -1,9 +1,9 @@
-package app.infrastructure.model
+package app.domain.model
 
 import java.time.LocalDateTime
 
-import app.infrastructure.model.Try
-import app.infrastructure.model.Tag
+import app.domain.model.Try
+import app.domain.model.Tag
 
 import TryTag._
 case class TryTag(
