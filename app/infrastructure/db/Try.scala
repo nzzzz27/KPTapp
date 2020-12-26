@@ -30,7 +30,7 @@ class TryTable @Inject()(
     def id          = column[Id]           ("id", O.PrimaryKey, O.AutoInc)
     def problemId   = column[Problem.Id]   ("problem_id")
     def text        = column[String]       ("text")
-    def status      = column[Short]        ("status")
+    def status      = column[Short]        ("status", O.Default(0))
     def created_at  = column[LocalDateTime]("created_at")
     def modified_at = column[LocalDateTime]("modified_at")
 

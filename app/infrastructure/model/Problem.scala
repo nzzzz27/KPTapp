@@ -2,9 +2,16 @@ package app.infrastructure.model
 
 import java.time.LocalDateTime
 
+import Problem._
 case class Problem(
-  id:            Option[Long],       // Problem ID
-  text:          String,             // 内容
-  created_at:    LocalDateTime,
-  modified_at:   LocalDateTime
+  id:            Option[Id],            // Problem ID
+  text:          String,                // 内容
+  createdAt:     LocalDateTime,
+  modifiedAt:    LocalDateTime
 )
+
+object Problem {
+
+  type Id = Long
+
+}

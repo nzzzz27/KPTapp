@@ -10,8 +10,8 @@ case class TryTask(
   tryId:         Try.Id,               // Try ID
   text:          String,               // 内容
   status:        Short,                // ステータス
-  created_at:    LocalDateTime,
-  modified_at:   LocalDateTime
+  createdAt:     LocalDateTime,
+  modifiedAt:    LocalDateTime
 )
 
 object TryTask {
