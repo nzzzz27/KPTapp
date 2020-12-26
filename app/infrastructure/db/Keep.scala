@@ -13,9 +13,9 @@ class KeepTable @Inject()(
 ) extends HasDatabaseConfigProvider[JdbcProfile] {
   import profile.api._
 
-  private val keep = TableQuery[KeepTable]
+  private val keep = TableQuery[TableColumn]
 
-  private class KeepTable(tag: Tag) extends Table[Keep](tag, "Keep") {
+  private class TableColumn(tag: Tag) extends Table[Keep](tag, "Keep") {
     def id          = column[Long]         ("id", O.PrimaryKey, O.AutoInc)
     def text        = column[String]       ("text")
     def created_at  = column[LocalDateTime]("created_at")
