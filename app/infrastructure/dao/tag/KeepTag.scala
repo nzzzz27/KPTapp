@@ -23,9 +23,9 @@ class KeepTagTable @Inject()(
     LocalDateTime
   )
 
-  private val query = TableQuery[TableColumn]
+  val query = TableQuery[TableColumn]
 
-  private class TableColumn(tag: Tag) extends Table[KeepTag](tag, "KeepTag") {
+  protected class TableColumn(tag: Tag) extends Table[KeepTag](tag, "KeepTag") {
     def id          = column[KeepTag.Id]   ("id", O.PrimaryKey, O.AutoInc)
     def tagId       = column[KptTag.Id]    ("tag_id")
     def keepId      = column[Keep.Id]      ("keep_id")

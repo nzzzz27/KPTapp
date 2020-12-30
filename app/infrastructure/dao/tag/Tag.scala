@@ -22,9 +22,9 @@ class KptTagTable @Inject()(
     LocalDateTime
   )
 
-  private val query = TableQuery[TableColumn]
+  val query = TableQuery[TableColumn]
 
-  private class TableColumn(tag: Tag) extends Table[KptTag](tag, "KptTag") {
+  protected class TableColumn(tag: Tag) extends Table[KptTag](tag, "KptTag") {
     def id          = column[KptTag.Id]    ("id", O.PrimaryKey, O.AutoInc)
     def tagColor    = column[TagColor.Id]  ("tag_color_id")
     def name        = column[String]       ("name")

@@ -23,9 +23,9 @@ class ProblemTagTable @Inject()(
     LocalDateTime
   )
 
-  private val query = TableQuery[TableColumn]
+  val query = TableQuery[TableColumn]
 
-  private class TableColumn(tag: Tag) extends Table[ProblemTag](tag, "ProblemTag") {
+  protected class TableColumn(tag: Tag) extends Table[ProblemTag](tag, "ProblemTag") {
     def id          = column[ProblemTag.Id]("id", O.PrimaryKey, O.AutoInc)
     def tagId       = column[KptTag.Id]    ("tag_id")
     def problemId   = column[Problem.Id]   ("problem_id")

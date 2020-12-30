@@ -20,9 +20,9 @@ class TagColorTable @Inject()(
     LocalDateTime
   )
 
-  private val query = TableQuery[TableColumn]
+  val query = TableQuery[TableColumn]
 
-  private class TableColumn(tag: Tag) extends Table[TagColor](tag, "TagColor") {
+  protected class TableColumn(tag: Tag) extends Table[TagColor](tag, "TagColor") {
     def id          = column[TagColor.Id]  ("id", O.PrimaryKey, O.AutoInc)
     def color       = column[String]       ("color")
     def created_at  = column[LocalDateTime]("created_at")
