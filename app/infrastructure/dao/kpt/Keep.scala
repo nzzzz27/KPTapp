@@ -20,9 +20,9 @@ class KeepTable @Inject()(
     LocalDateTime
   )
 
-  private val query = TableQuery[TableColumn]
+  val query = TableQuery[TableColumn]
 
-  private class TableColumn(tag: Tag) extends Table[Keep](tag, "Keep") {
+  protected class TableColumn(tag: Tag) extends Table[Keep](tag, "Keep") {
     def id          = column[Keep.Id]      ("id", O.PrimaryKey, O.AutoInc)
     def text        = column[String]       ("text")
     def created_at  = column[LocalDateTime]("created_at")

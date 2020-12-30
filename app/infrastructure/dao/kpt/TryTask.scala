@@ -24,9 +24,9 @@ class TryTaskTable @Inject()(
     LocalDateTime
   )
 
-  private val query = TableQuery[TableColumn]
+  val query = TableQuery[TableColumn]
 
-  private class TableColumn(tag: Tag) extends Table[TryTask](tag, "TryTask") {
+  protected class TableColumn(tag: Tag) extends Table[TryTask](tag, "TryTask") {
     def id          = column[Id]           ("id", O.PrimaryKey, O.AutoInc)
     def tryId       = column[Try.Id]       ("try_id")
     def text        = column[String]       ("text")

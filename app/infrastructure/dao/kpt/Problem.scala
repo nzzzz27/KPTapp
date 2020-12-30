@@ -20,9 +20,9 @@ class ProblemTable @Inject()(
     LocalDateTime
   )
 
-  private val query = TableQuery[TableColumn]
+  val query = TableQuery[TableColumn]
 
-  private class TableColumn(tag: Tag) extends Table[Problem](tag, "Problem") {
+  protected class TableColumn(tag: Tag) extends Table[Problem](tag, "Problem") {
     def id          = column[Problem.Id]   ("id", O.PrimaryKey, O.AutoInc)
     def text        = column[String]       ("text")
     def created_at  = column[LocalDateTime]("created_at")
