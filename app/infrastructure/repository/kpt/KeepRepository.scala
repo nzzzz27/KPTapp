@@ -1,4 +1,4 @@
-package app.infrastructure.repository
+package infrastructure.repository
 
 import javax.inject.{ Inject, Singleton }
 import scala.concurrent.{ Future, ExecutionContext }
