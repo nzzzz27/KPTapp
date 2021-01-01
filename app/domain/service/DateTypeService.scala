@@ -1,4 +1,4 @@
-package app.domain.service
+package domain.service
 
 import java.sql.Timestamp
 import java.time.format.DateTimeFormatter

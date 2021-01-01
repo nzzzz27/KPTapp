@@ -3,25 +3,27 @@ package application
 import javax.inject.{ Inject, Singleton }
 import scala.concurrent.{ Future, ExecutionContext }
 
-import play.api._
-import play.api.mvc._
+import play.api.mvc.ControllerComponents
 
 import infrastructure.repository.KeepRepository
 import presentation.json.writes.JsValueKeep
-import domain.model.Keep
 
 @Singleton
 class KeepApplication @Inject()(
   val controllerComponents: ControllerComponents,
-  implicit val ec:          ExecutionContext,
   keepRepository:           KeepRepository
-) extends BaseController {
+)(implicit ec: ExecutionContext) {
 
   def getAll(): Future[Seq[JsValueKeep]] = {
     for {
       keepSeq <- keepRepository.getAll()
     } yield {
-      keepSeq.map(JsValueKeep(_))
+      keepSeq.map{ keep => JsValueKeep(
+        id        = keep.id,
+        text      = keep.text,
+        createdAt = keep.createdAt,
+        updatedAt = keep.updatedAt
+      )}
     }
   }
 

@@ -4,26 +4,25 @@ import javax.inject.{ Inject, Singleton }
 import scala.concurrent.{ Future, ExecutionContext }
 
 import play.api._
-import play.api.mvc._
+import play.api.mvc.{ ControllerComponents, BaseController, Request, AnyContent }
+import play.api.libs.json._
+import play.api.i18n.I18nSupport
 
 import application.KeepApplication
-import domain.model.Keep
 
 @Singleton
 class KeepController @Inject()(
   val controllerComponents: ControllerComponents,
-  implicit val ec:          ExecutionContext,
   keepApplication:          KeepApplication
-) extends BaseController {
+)(implicit ec:  ExecutionContext) extends BaseController with I18nSupport{
 
   def index() = Action async { implicit req =>
-
     for {
-      jsValueKeepSeq <- keepApplication.getAll()
+      jsValueSeq <- keepApplication.getAll()
     } yield {
-      Ok("OK")
+      import presentation.json.writes._
+      Ok(Json.toJson(jsValueSeq))
     }
-
   }
 
 }
