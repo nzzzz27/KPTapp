@@ -17,14 +17,7 @@ class KeepApplication @Inject()(
   def getAll(): Future[Seq[JsValueKeep]] = {
     for {
       keepSeq <- keepRepository.getAll()
-    } yield {
-      keepSeq.map{ keep => JsValueKeep(
-        id        = keep.id,
-        text      = keep.text,
-        createdAt = keep.createdAt,
-        updatedAt = keep.updatedAt
-      )}
-    }
+    } yield keepSeq.map(JsValueKeep(_))
   }
 
 }

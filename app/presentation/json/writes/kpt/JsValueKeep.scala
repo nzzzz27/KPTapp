@@ -25,12 +25,12 @@ object JsValueKeep {
     (JsPath \ "updatedAt"    ).write[LocalDateTime]
   )(unlift(JsValueKeep.unapply))
 
-  // def apply(keep: Keep): JsValueKeep = 
-  //   JsValueKeep(
-  //     id        = keep.id,
-  //     text      = keep.text,
-  //     createdAt = keep.createdAt,
-  //     updatedAt = keep.updatedAt
-  //   )
+  def apply(keep: Keep): JsValueKeep =
+    JsValueKeep(
+      id        = keep.id,
+      text      = keep.text,
+      createdAt = keep.createdAt,
+      updatedAt = keep.updatedAt
+    )
 
 }
