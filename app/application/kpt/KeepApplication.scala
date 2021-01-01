@@ -1,4 +1,4 @@
-package presentation
+package application
 
 import javax.inject.{ Inject, Singleton }
 import scala.concurrent.{ Future, ExecutionContext }
@@ -7,24 +7,22 @@ import play.api._
 import play.api.mvc._
 
 import infrastructure.repository.KeepRepository
-import app.domain.model.Keep
+import presentation.json.writes.JsValueKeep
+import domain.model.Keep
 
 @Singleton
-class HomeController @Inject()(
+class KeepApplication @Inject()(
   val controllerComponents: ControllerComponents,
   implicit val ec:          ExecutionContext,
   keepRepository:           KeepRepository
 ) extends BaseController {
 
-  def index() = Action async { implicit requ =>
-
+  def getAll(): Future[Seq[JsValueKeep]] = {
     for {
-      keeps <- keepRepository.getAll()
+      keepSeq <- keepRepository.getAll()
     } yield {
-      println(keeps)
-      Ok("OK")
+      keepSeq.map(JsValueKeep(_))
     }
-
   }
 
 }

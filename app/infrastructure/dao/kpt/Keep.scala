@@ -8,7 +8,7 @@ import play.api.db.slick.HasDatabaseConfigProvider
 import slick.jdbc.JdbcProfile
 import app.domain.service.DateTypeService
 
-import app.domain.model.Keep
+import domain.model.Keep
 
 class KeepTable @Inject()(
   protected val dbConfigProvider: DatabaseConfigProvider,
@@ -27,11 +27,11 @@ class KeepTable @Inject()(
   protected class TableColumn(tag: Tag) extends Table[Keep](tag, "Keep") {
     def id          = column[Keep.Id]  ("id", O.PrimaryKey, O.AutoInc)
     def text        = column[String]   ("text")
-    def created_at  = column[Timestamp]("created_at")
-    def updated_at  = column[Timestamp]("updated_at")
+    def createdAt  = column[Timestamp]("created_at")
+    def updatedAt  = column[Timestamp]("updated_at")
 
     //  DB <=> Scala の相互のmapping定義
-    def * = (id.?, text, created_at, updated_at).<>(
+    def * = (id.?, text, createdAt, updatedAt).<>(
       // Tuple(table) => Model
       (t: TableElementTuple) => Keep(
         t._1, t._2, toLocalDateTime(t._3), toLocalDateTime(t._4)
