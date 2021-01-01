@@ -1,8 +1,8 @@
-package app.domain.model
+package domain.model
 
 import java.time.LocalDateTime
 
-import app.domain.model.Problem
+import domain.model.Problem
 
 import Try._
 case class Try(
@@ -11,7 +11,7 @@ case class Try(
   text:          String,               // 内容
   status:        Short,                // ステータス
   createdAt:     LocalDateTime,
-  modifiedAt:    LocalDateTime
+  updatedAt:     LocalDateTime
 )
 
 object Try {

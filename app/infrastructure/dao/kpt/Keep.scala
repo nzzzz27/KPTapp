@@ -1,4 +1,4 @@
-package app.infrastructure.dao
+package infrastructure.dao
 
 import java.time.LocalDateTime
 import java.sql.Timestamp
@@ -25,10 +25,10 @@ class KeepTable @Inject()(
   val query = TableQuery[TableColumn]
 
   protected class TableColumn(tag: Tag) extends Table[Keep](tag, "Keep") {
-    def id          = column[Keep.Id]  ("id", O.PrimaryKey, O.AutoInc)
-    def text        = column[String]   ("text")
-    def createdAt  = column[Timestamp]("created_at")
-    def updatedAt  = column[Timestamp]("updated_at")
+    def id         = column[Keep.Id]      ("id", O.PrimaryKey, O.AutoInc)
+    def text       = column[String]       ("text")
+    def createdAt  = column[LocalDateTime]("created_at")
+    def updatedAt  = column[LocalDateTime]("updated_at")
 
     //  DB <=> Scala の相互のmapping定義
     def * = (id.?, text, createdAt, updatedAt).<>(

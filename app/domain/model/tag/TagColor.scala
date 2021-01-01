@@ -1,4 +1,4 @@
-package app.domain.model
+package domain.model
 
 import java.time.LocalDateTime
 
@@ -7,7 +7,7 @@ case class TagColor(
   id:            Option[Id],         // TagColor ID
   color:         String,             // カラーコード
   createdAt:     LocalDateTime,
-  modifiedAt:    LocalDateTime
+  updatedAt:     LocalDateTime
 )
 
 object TagColor {

@@ -7,7 +7,7 @@ import play.api.db.slick.{ DatabaseConfigProvider, HasDatabaseConfigProvider }
 import slick.jdbc.MySQLProfile.api._
 import slick.jdbc.JdbcProfile
 
-import app.infrastructure.dao.KeepTable
+import infrastructure.dao.KeepTable
 import domain.model.Keep
 
 class KeepRepository @Inject()(
