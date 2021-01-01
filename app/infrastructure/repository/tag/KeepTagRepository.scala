@@ -1,4 +1,4 @@
-package app.infrastructure.repository
+package infrastructure.repository
 
 import javax.inject.{ Inject, Singleton }
 import scala.concurrent.{ Future, ExecutionContext }
@@ -7,8 +7,8 @@ import play.api.db.slick.{ DatabaseConfigProvider, HasDatabaseConfigProvider }
 import slick.jdbc.MySQLProfile.api._
 import slick.jdbc.JdbcProfile
 
-import app.infrastructure.dao.KeepTagTable
-import app.domain.model.KeepTag
+import infrastructure.dao.KeepTagTable
+import domain.model.KeepTag
 
 class KeepTagRepository @Inject()(
   protected val dbConfigProvider: DatabaseConfigProvider,

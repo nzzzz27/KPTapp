@@ -1,8 +1,9 @@
-package app.domain.model
+package domain.model
 
 import java.time.LocalDateTime
 
-import app.domain.model.Tag
+import domain.model.Keep
+import domain.model.Tag
 
 import KeepTag._
 case class KeepTag(
@@ -10,7 +11,7 @@ case class KeepTag(
   tagId:         Tag.Id,             // Tag ID
   keepId:        Keep.Id,            // Keep ID
   createdAt:     LocalDateTime,
-  modifiedAt:    LocalDateTime
+  updatedAt:     LocalDateTime
 )
 
 object KeepTag {

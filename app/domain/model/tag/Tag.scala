@@ -1,7 +1,7 @@
-package app.domain.model
+package domain.model
 
 import java.time.LocalDateTime
-import app.domain.model.TagColor
+import domain.model.TagColor
 
 import Tag._
 case class Tag(
@@ -9,7 +9,7 @@ case class Tag(
   colorId:       TagColor.Id,        // Tagの色 ID
   name:          String,             // 名称
   createdAt:     LocalDateTime,
-  modifiedAt:    LocalDateTime
+  updatedAt:     LocalDateTime
 )
 
 object Tag {

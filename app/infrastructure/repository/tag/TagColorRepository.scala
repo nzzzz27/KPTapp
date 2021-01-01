@@ -1,4 +1,4 @@
-package app.infrastructure.repository
+package infrastructure.repository
 
 import javax.inject.{ Inject, Singleton }
 import scala.concurrent.{ Future, ExecutionContext }
@@ -7,8 +7,8 @@ import play.api.db.slick.{ DatabaseConfigProvider, HasDatabaseConfigProvider }
 import slick.jdbc.MySQLProfile.api._
 import slick.jdbc.JdbcProfile
 
-import app.infrastructure.dao.TagColorTable
-import app.domain.model.TagColor
+import infrastructure.dao.TagColorTable
+import domain.model.TagColor
 
 class TagColorRepository @Inject()(
   protected val dbConfigProvider: DatabaseConfigProvider,
