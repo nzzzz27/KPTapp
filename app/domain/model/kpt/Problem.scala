@@ -1,4 +1,4 @@
-package app.domain.model
+package domain.model
 
 import java.time.LocalDateTime
 
@@ -7,7 +7,7 @@ case class Problem(
   id:            Option[Id],            // Problem ID
   text:          String,                // 内容
   createdAt:     LocalDateTime,
-  modifiedAt:    LocalDateTime
+  updatedAt:     LocalDateTime
 )
 
 object Problem {

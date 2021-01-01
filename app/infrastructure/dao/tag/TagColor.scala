@@ -1,4 +1,4 @@
-package app.infrastructure.dao
+package infrastructure.dao
 
 import java.time.LocalDateTime
 import javax.inject.Inject
@@ -6,7 +6,7 @@ import play.api.db.slick.DatabaseConfigProvider
 import play.api.db.slick.HasDatabaseConfigProvider
 import slick.jdbc.JdbcProfile
 
-import app.domain.model.TagColor
+import domain.model.TagColor
 
 class TagColorTable @Inject()(
   protected val dbConfigProvider: DatabaseConfigProvider,
@@ -23,13 +23,13 @@ class TagColorTable @Inject()(
   val query = TableQuery[TableColumn]
 
   protected class TableColumn(tag: Tag) extends Table[TagColor](tag, "TagColor") {
-    def id          = column[TagColor.Id]  ("id", O.PrimaryKey, O.AutoInc)
-    def color       = column[String]       ("color")
-    def created_at  = column[LocalDateTime]("created_at")
-    def modified_at = column[LocalDateTime]("modified_at")
+    def id        = column[TagColor.Id]  ("id", O.PrimaryKey, O.AutoInc)
+    def color     = column[String]       ("color")
+    def createdAt = column[LocalDateTime]("created_at")
+    def updatedAt = column[LocalDateTime]("updated_at")
 
     // DB <=> Scala の相互のmapping定義
-    def * = (id.?, color, created_at, modified_at).<>(
+    def * = (id.?, color, createdAt, updatedAt).<>(
       // Tuple(table) => Model
       (t: TableElementTuple) => TagColor(
         t._1, t._2, t._3, t._4

@@ -1,9 +1,9 @@
-package app.domain.model
+package domain.model
 
 import java.time.LocalDateTime
 
-import app.domain.model.Try
-import app.domain.model.Tag
+import domain.model.Try
+import domain.model.Tag
 
 import TryTag._
 case class TryTag(
@@ -11,7 +11,7 @@ case class TryTag(
   tryId:         Try.Id,             // Try ID
   tagId:         Tag.Id,             // Tag ID
   createdAt:     LocalDateTime,
-  modifiedAt:    LocalDateTime
+  updatedAt:     LocalDateTime
 )
 
 object TryTag {
