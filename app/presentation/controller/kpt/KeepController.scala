@@ -16,13 +16,11 @@ class KeepController @Inject()(
   keepApplication:          KeepApplication
 )(implicit ec:  ExecutionContext) extends BaseController with I18nSupport{
 
-  def index() = Action async { implicit req =>
-    for {
-      jsValueSeq <- keepApplication.getAll()
-    } yield {
-      import presentation.json.writes._
-      Ok(Json.toJson(jsValueSeq))
-    }
-  }
+  def index() = Action async { implicit req => for {
+    jsValueSeq <- keepApplication.getAll()
+  } yield {
+    import presentation.json.writes._
+    Ok(Json.toJson(jsValueSeq))
+  }}
 
 }
