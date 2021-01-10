@@ -20,7 +20,7 @@ class KeepController @Inject()(
     jsValueSeq <- keepApplication.getAll()
   } yield {
     import presentation.json.writes._
-    Ok(Json.toJson(jsValueSeq))
+    Ok(views.html.index())
+    // Ok(Json.toJson(jsValueSeq))
   }}
-
 }
