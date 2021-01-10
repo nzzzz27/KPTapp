@@ -9,6 +9,7 @@ import play.api.libs.json._
 import play.api.i18n.I18nSupport
 
 import application.KeepApplication
+import model.ViewValueCommon
 
 @Singleton
 class KeepController @Inject()(
@@ -20,7 +21,7 @@ class KeepController @Inject()(
     jsValueSeq <- keepApplication.getAll()
   } yield {
     import presentation.json.writes._
-    Ok(views.html.index())
+    Ok(views.html.index(ViewValueCommon()))
     // Ok(Json.toJson(jsValueSeq))
   }}
 }
