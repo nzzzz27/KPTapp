@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build.prod": "ng build --prod --output-hashing=none && cat dist/ui/{runtime,polyfills,main}.js > ../public/js/ng-elements.js",
+    "build.watch": "ng build --watch",
+    "build.prod": "ng build --prod --output-hashing=none && cat ../public/dist/{runtime,polyfills,main}.js > ../public/js/ng-elements.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

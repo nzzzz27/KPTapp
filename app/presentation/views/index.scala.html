@@ -14,8 +14,12 @@
       class="angular-elemtents-sample"
     >loading</app-hello>
 
-    <!-- 出力されたファイルを読み込む -->
-    <script type="text/javascript" src=@routes.Assets.versioned("js/ng-elements.js")></script>
-
+    <!-- 本番用 -->
+    <!-- <script type="text/javascript" src=@routes.Assets.versioned("js/ng-elements.js")></script> -->
+    <!-- 開発用 -->
+    <script type="text/javascript" src=@routes.Assets.versioned("dist/main.js")></script>
+    <script type="text/javascript" src=@routes.Assets.versioned("dist/polyfills.js")></script>
+    <script type="text/javascript" src=@routes.Assets.versioned("dist/runtime.js")></script>
+    <script type="text/javascript" src=@routes.Assets.versioned("dist/vendor.js")></script>
   </body>
 </html>
