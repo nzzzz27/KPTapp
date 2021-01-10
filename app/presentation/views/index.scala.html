@@ -1,0 +1,11 @@
+@import helper._
+@import model.ViewValueCommon
+
+@(vv: ViewValueCommon)(implicit request: RequestHeader, messagesProvider: MessagesProvider)
+
+@common.main(vv){
+  <app-hello
+    name="Angular Elements!"
+    class="angular-elemtents-sample"
+  >loading</app-hello>
+}
