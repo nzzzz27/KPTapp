@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { APP_BASE_HREF} from '@angular/common';
 
@@ -15,7 +14,6 @@ import { KeepComponent } from './keep/keep.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
