@@ -1,3 +1,6 @@
 .metals
 target/
 .idea/
+
+/public
+.DS_Store

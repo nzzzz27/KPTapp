@@ -1,21 +1,11 @@
-import { Component, Injector } from '@angular/core';
-import { createCustomElement } from '@angular/elements';
-import { KeepComponent } from './keep/keep.component';
+import { Component  } from '@angular/core';
 
 @Component({
-  selector: 'app-hello',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent  {
-  content = "aaa"
-  constructor(
-    private injector: Injector,
-  ) {
-    const AppKeepElement = createCustomElement(
-      KeepComponent,
-      { injector: this.injector }
-    );
-    customElements.define('app-hello', AppKeepElement);
-  }
+export class AppComponent {
+
+  constructor() { }
 }
