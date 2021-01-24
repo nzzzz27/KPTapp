@@ -1,0 +1,46 @@
+@import 'common';
+
+#board-view {
+
+  .content-main {
+    margin-left:       180px;
+    width:             calc(100vw - 180px);
+    min-height:        100vh;
+    background-color:  $color-base;
+  }
+
+  .board__container {
+    display:   flex;
+
+  }
+
+  .board {
+    width:            33%;
+    height:           100%;
+    min-width:        200px;
+    margin:           $space-small;
+    padding:          $space-small;
+
+    &:not(:last-child) {
+      border-right:  1px solid white;
+    }
+    &__name {
+      font-size:   20px;
+    }
+  }
+
+  .button-add-kpt {
+    display:               block;
+    width:                 100%;
+    height:                40px;
+    padding:               10px;
+    margin-top:            $space-medium;
+    background-color:      white;
+    border-radius:         2px;
+    border:                1px solid rgba(44, 19, 56, 0.05);
+
+    &:hover {
+      cursor:  pointer;
+    }
+  }
+}

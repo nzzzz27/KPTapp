@@ -1,0 +1,26 @@
+<div id="board-view">
+  <div class="content-main">
+    <div class="board__container">
+      <div class="board">
+        <p class="board-name">Keep</p>
+        <div *ngFor="let keep of keeps$ |async">
+          <mat-card class="orange-theme">
+            <mat-card-title color="primary">{{ keep.text }}</mat-card-title>
+            <mat-card-content>
+              {{ keep.createdAt }}
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <button class="button-add-kpt">+</button>
+      </div>
+      <div class="board">
+        <p class="board-name">Problem</p>
+        <button class="button-add-kpt">+</button>
+      </div>
+      <div class="board">
+        <p class="board-name">Try</p>
+        <button class="button-add-kpt">+</button>
+      </div>
+    </div>
+  </div>
+</div>

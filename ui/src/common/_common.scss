@@ -1,0 +1,21 @@
+@import url(sanitize.css);
+@import './variables/variables';
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+:host {
+  a {
+    text-decoration:  none;
+  }
+
+  li::before {
+    content: '';
+    display: none;
+  }
+
+  .mat-icon {
+    vertical-align: bottom;
+  }
+
+}
