@@ -1,8 +1,9 @@
 import { BrowserModule }      from '@angular/platform-browser';
 import { NgModule }           from '@angular/core';
 import { HttpClientModule }   from '@angular/common/http';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
+import { MatIconModule }      from '@angular/material/icon';
+import { MatCardModule }      from '@angular/material/card';
+import { DragDropModule }     from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule }        from './app-routing.module';
 import { AppComponent }            from './app.component';
@@ -26,6 +27,7 @@ import { NgxsModule }              from '@ngxs/store';
     HttpClientModule,
     MatIconModule,
     MatCardModule,
+    DragDropModule,
     BrowserAnimationsModule,
     NgxsModule.forRoot([ KeepState ]),
   ],
