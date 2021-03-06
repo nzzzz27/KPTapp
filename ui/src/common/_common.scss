@@ -1,27 +1,6 @@
-@import url(sanitize.css);
-@import './variables/variables';
+@import './theme/index';
+@import './variables/index';
 
-@import '~@angular/material/theming';
-@include mat-core();
-
-:host {
-  a {
-    text-decoration:  none;
-  }
-
-  ul {
-    padding: 0;
-  }
-
-  li {
-    list-style:  none;
-    &::before {
-    display: none;
-    }
-  }
-
-  .mat-icon {
-    vertical-align: bottom;
-  }
-
+body {
+  color:  $text-color-base;
 }

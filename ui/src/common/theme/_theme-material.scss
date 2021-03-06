@@ -1,0 +1,16 @@
+// for Material UI
+@include mat-core();
+
+$ui-primary: mat-palette($palette-primary);
+$ui-accent:  mat-palette($mat-deep-orange, 500, 900, A100);
+$ui-warn:    mat-palette($mat-red);
+
+$ui-theme: mat-light-theme((
+  color: (
+    primary: $ui-primary,
+    accent:  $ui-accent,
+    warn:    $ui-warn,
+  )
+));
+
+@include angular-material-theme($ui-theme);

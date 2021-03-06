@@ -1,10 +1,14 @@
-$color-base:          #fffbf4;
-$color-primary-dark:  #c77800;
-$color-primary-light: #fff3e0;
+@import '~@angular/material/theming';
+$font-size-micro:   10px;
+$font-size-small:   12px;
+$font-size-base:    14px;
+$font-size-medium:  16px;
+$font-size-large:   18px;
+$font-size-xlarge:  20px;
 
-$space-micro:  4px;
-$space-small:  8px;
-$space-medium: 16px;
-$space-base:   24px;
-$space-large:  32px;
+$space-size-8:   8px;
+$space-size-16:  16px;
+$space-size-24:  24px;
+$space-size-32:  32px;
 
+$navigation-width:  180px;

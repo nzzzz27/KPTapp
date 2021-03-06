@@ -32,7 +32,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/common"
+                "src/common/"
               ]
             },
             "scripts": []

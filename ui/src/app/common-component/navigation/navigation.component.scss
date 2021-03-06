@@ -8,15 +8,15 @@
     width:            180px;
     min-height:       100vh;
     margin:           0;
-    padding:          $space-base $space-small;
-    background-color: $color-primary-dark;
+    padding:          $space-size-16;
+    background-color: $color-primary-deep;
 
     &__site-top {
       font-weight:    bold;
     }
 
     &__category-name {
-      margin:         $space-large 0 $space-small;
+      margin:         $space-size-32 0 $space-size-16;
       color:          rgba(255,255,255,.5);
       font-size:      14px;
       font-weight:    bold;
@@ -24,13 +24,13 @@
 
     &__item {
       display:        block;
-      padding:        $space-micro $space-small;
-      margin:         $space-medium 0;
+      padding:        $space-size-8;
+      margin:         $space-size-16 0;
       border-radius:  4px;
-      color:          $color-primary-light;
+      color:          white;
       &.on {
-        color:              white;
-        background-color:   #d8a15e;
+        color:              map-get($mat-blue-grey, 800);
+        background-color:   $background-color-light;
       }
     }
   }

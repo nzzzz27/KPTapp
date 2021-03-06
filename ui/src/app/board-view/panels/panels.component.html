@@ -8,10 +8,10 @@
             [cdkDropListData]="keeps$"
             (cdkDropListDropped)="drop($event)"
            >
-            <li *ngFor="let keep of keeps$|async" cdkDrag>
-              <mat-card class="orange-theme">
-                <mat-card-title color="primary">{{ keep.text }}</mat-card-title>
-                <mat-card-content>
+            <li class="board-item" *ngFor="let keep of keeps$|async" cdkDrag>
+              <mat-card>
+                <mat-card-title class="board-item__text">{{ keep.text }}</mat-card-title>
+                <mat-card-content class="board-item__details">
                   {{ keep.createdAt }}
                 </mat-card-content>
               </mat-card>
@@ -26,10 +26,10 @@
           [cdkDropListData]="problems$"
           (cdkDropListDropped)="drop($event)"
         >
-          <li *ngFor="let problem of problems$|async" cdkDrag>
-            <mat-card class="orange-theme">
-              <mat-card-title color="primary">{{ problem.text }}</mat-card-title>
-              <mat-card-content>
+          <li class="board-item" *ngFor="let problem of problems$|async" cdkDrag>
+            <mat-card>
+              <mat-card-title class="board-item__text">{{ problem.text }}</mat-card-title>
+              <mat-card-content class="board-item__details">
                 {{ problem.createdAt }}
               </mat-card-content>
             </mat-card>
@@ -44,10 +44,10 @@
           [cdkDropListData]="try$"
           (cdkDropListDropped)="drop($event)"
         >
-          <li *ngFor="let try of try$|async" cdkDrag>
-            <mat-card class="orange-theme">
-              <mat-card-title color="primary">{{ try.text }}</mat-card-title>
-              <mat-card-content>
+          <li class="board-item" *ngFor="let try of try$|async" cdkDrag>
+            <mat-card>
+              <mat-card-title class="board-item__text">{{ try.text }}</mat-card-title>
+              <mat-card-content class="board-item__details">
                 {{ try.createdAt }}
               </mat-card-content>
             </mat-card>
