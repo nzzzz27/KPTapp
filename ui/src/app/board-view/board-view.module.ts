@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule }           from '@angular/core';
+import { CommonModule }       from '@angular/common';
 import { MatCardModule }      from '@angular/material/card';
 import { DragDropModule }     from '@angular/cdk/drag-drop';
 
@@ -22,4 +22,5 @@ import { PanelsComponent }         from './panels/panels.component';
     BoardViewComponent,
   ],
 })
+
 export class BoardViewModule { }

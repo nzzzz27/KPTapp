@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
-import {Observable} from 'rxjs';
+import { Observable }    from 'rxjs';
+// import { map, tap } from 'rxjs/operators';
 import { Keep }          from '../../../model/keep';
 import { Problem }       from '../../../model/problem';
 import { Try }           from '../../../model/try';
@@ -37,14 +38,17 @@ export class PanelsComponent implements OnInit {
     this.store.dispatch(new TryAction.Load())
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<Observable<Keep[] | Problem[] | Try[]>>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      event.container.data.subscribe((data) =>
+        moveItemInArray(data, event.previousIndex, event.currentIndex)
+      )
     } else {
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
+      event.previousContainer.data.subscribe(prevData => {
+        event.container.data.subscribe(data =>
+          transferArrayItem(prevData, data, event.previousIndex, event.currentIndex)
+        )
+      });
     }
   }
 
