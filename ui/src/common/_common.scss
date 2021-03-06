@@ -9,9 +9,15 @@
     text-decoration:  none;
   }
 
-  li::before {
-    content: '';
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style:  none;
+    &::before {
     display: none;
+    }
   }
 
   .mat-icon {

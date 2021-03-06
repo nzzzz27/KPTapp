@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Keep } from '../../model/keep';
+import { Try } from '../../model/try';
 
 @Injectable({ providedIn: 'root' })
-export class KeepService {
+export class TryService {
 
   private host    = 'http://localhost:9000';
-  private keepUrl = `${this.host}/kpt/keep`;
+  private tryUrl = `${this.host}/kpt/try`;
 
   constructor(
     private http: HttpClient,
   ) { }
 
-  getKeeps(): Observable<Keep[]> {
-    return this.http.get<Keep[]>(this.keepUrl)
+  getTry(): Observable<Try[]> {
+    return this.http.get<Try[]>(this.tryUrl)
   }
 }

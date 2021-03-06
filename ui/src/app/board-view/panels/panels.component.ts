@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import {Observable} from 'rxjs';
-import { Keep }              from '../../../model/keep';
-import { KeepAction } from '../../keep-service/keep.actions';
-import { KeepState } from '../../keep-service/keep.state';
+import { Keep }          from '../../../model/keep';
+import { Problem }       from '../../../model/problem';
+import { Try }           from '../../../model/try';
+import { KeepAction }    from '../../keep-service/keep.actions';
+import { ProblemAction } from '../../problem-service/problem.actions';
+import { TryAction }     from '../../try-service/try.actions';
+import { KeepState }    from '../../keep-service/keep.state';
+import { ProblemState } from '../../problem-service/problem.state';
+import { TryState }     from '../../try-service/try.state';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
@@ -17,19 +23,18 @@ export class PanelsComponent implements OnInit {
     private store: Store
   ) { }
 
-  @Select(KeepState.keeps) keeps$: Observable<Keep[]>
+  @Select(KeepState.keeps)       keeps$:    Observable<Keep[]>
+  @Select(ProblemState.problems) problems$: Observable<Problem[]>
+  @Select(TryState.try)          try$:      Observable<Try[]>
 
   ngOnInit(): void {
-    this.getKeeps();
+    this.getKpt();
   }
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
-  getKeeps(): void {
+
+  getKpt(): void {
     this.store.dispatch(new KeepAction.Load())
+    this.store.dispatch(new ProblemAction.Load())
+    this.store.dispatch(new TryAction.Load())
   }
 
   drop(event: CdkDragDrop<string[]>) {

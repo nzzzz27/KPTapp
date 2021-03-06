@@ -3,19 +3,56 @@
     <div cdkDropListGroup class="board__container">
       <div class="board">
         <p class="board-name">Keep</p>
-          <div
+          <ul
             cdkDropList
             [cdkDropListData]="keeps$"
+            (cdkDropListDropped)="drop($event)"
            >
-            <div *ngFor="let keep of keeps$|async" cdkDrag>
+            <li *ngFor="let keep of keeps$|async" cdkDrag>
               <mat-card class="orange-theme">
                 <mat-card-title color="primary">{{ keep.text }}</mat-card-title>
                 <mat-card-content>
-                  {{ keep.createdat }}
+                  {{ keep.createdAt }}
                 </mat-card-content>
               </mat-card>
-            </div>
-          </div>
+            </li>
+          </ul>
+        <button class="button-add-kpt">+</button>
+      </div>
+      <div class="board">
+        <p class="board-name">Problem</p>
+        <ul
+          cdkDropList
+          [cdkDropListData]="problems$"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <li *ngFor="let problem of problems$|async" cdkDrag>
+            <mat-card class="orange-theme">
+              <mat-card-title color="primary">{{ problem.text }}</mat-card-title>
+              <mat-card-content>
+                {{ problem.createdAt }}
+              </mat-card-content>
+            </mat-card>
+          </li>
+        </ul>
+        <button class="button-add-kpt">+</button>
+      </div>
+      <div class="board">
+        <p class="board-name">Try</p>
+        <ul
+          cdkDropList
+          [cdkDropListData]="try$"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <li *ngFor="let try of try$|async" cdkDrag>
+            <mat-card class="orange-theme">
+              <mat-card-title color="primary">{{ try.text }}</mat-card-title>
+              <mat-card-content>
+                {{ try.createdAt }}
+              </mat-card-content>
+            </mat-card>
+          </li>
+        </ul>
         <button class="button-add-kpt">+</button>
       </div>
     </div>

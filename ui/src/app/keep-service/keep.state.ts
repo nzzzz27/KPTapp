@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Selector, State, Action, StateContext } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
 import { Keep } from '../../model/keep';
