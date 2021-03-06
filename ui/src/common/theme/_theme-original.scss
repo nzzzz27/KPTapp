@@ -1,0 +1,17 @@
+// for Original UI
+$palette-primary:    $mat-blue-grey;
+$palette-accent:     $mat-deep-orange;
+$palette-greyscale:  $mat-grey;
+
+// primary color
+$color-primary-deep:  map-get($palette-primary, 700);
+$color-primary-base:  map-get($palette-primary, 300);
+$color-primary-light: map-get($palette-primary, 100);
+
+// background color
+$background-color-base:  map-get($palette-greyscale, 50);
+$background-color-light: map-get($mat-grey, 50);
+
+// text color
+$text-color-base: map-get($mat-blue-grey, 900);
+$text-color-light:  map-get($mat-blue-grey, 800);

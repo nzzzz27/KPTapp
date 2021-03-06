@@ -9,6 +9,7 @@ export class BoardViewComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit(): void {
   }
 

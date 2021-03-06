@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(sanitize.css);
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  text-decoration:  none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style:  none;
+  &::before { display: none; }
+}
+
+.mat-icon {
+  vertical-align: bottom;
+}

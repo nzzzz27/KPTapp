@@ -1,3 +1,5 @@
-GET     /api/get                           presentation.KeepController.index()
+GET     /kpt/keep                          presentation.KeepController.index()
+GET     /kpt/problem                       presentation.ProblemController.index()
+GET     /kpt/try                           presentation.TryController.index()
 
-GET         /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file                      controllers.Assets.versioned(path="/public", file: Asset)

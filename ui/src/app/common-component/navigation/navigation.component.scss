@@ -1,0 +1,37 @@
+@import 'common';
+
+#global-navigation {
+  position: fixed;
+  top:      0;
+  left:     0;
+  .navigation {
+    width:            180px;
+    min-height:       100vh;
+    margin:           0;
+    padding:          $space-size-16;
+    background-color: $color-primary-deep;
+
+    &__site-top {
+      font-weight:    bold;
+    }
+
+    &__category-name {
+      margin:         $space-size-32 0 $space-size-16;
+      color:          rgba(255,255,255,.5);
+      font-size:      14px;
+      font-weight:    bold;
+    }
+
+    &__item {
+      display:        block;
+      padding:        $space-size-8;
+      margin:         $space-size-16 0;
+      border-radius:  4px;
+      color:          white;
+      &.on {
+        color:              map-get($mat-blue-grey, 800);
+        background-color:   $background-color-light;
+      }
+    }
+  }
+}
