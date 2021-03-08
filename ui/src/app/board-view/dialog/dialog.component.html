@@ -1,0 +1,14 @@
+<div id="keep-add-dialog">
+  <p mat-dialog-title>Keepを作成</p>
+  <mat-dialog-content>
+    <form>
+      <mat-form-field>
+        <textarea matInput placeholder="Keep"></textarea>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick">キャンセル</button>
+    <mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>保存</mat-button>
+  </mat-dialog-actions>
+</div>

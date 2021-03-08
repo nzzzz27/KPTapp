@@ -22,4 +22,11 @@ class KeepRepository @Inject()(
     }
   }
 
+  def create(data: Keep): Future[Long] = {
+    db.run {
+      // AutoIncの値を returning で取得する
+      table.query returning table.query.map(_.id) += data;
+    }
+  }
+
 }

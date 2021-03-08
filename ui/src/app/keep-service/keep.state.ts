@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Selector, State, Action, StateContext } from '@ngxs/store';
-import { tap } from 'rxjs/operators';
+import { tap, finalize } from 'rxjs/operators';
 import { Keep } from '../../model/keep';
 import { KeepAction } from './keep.actions';
 import { KeepService } from './keep.service';
@@ -38,6 +38,16 @@ export class KeepState {
           })
         })
       )
+  }
+
+  @Action(KeepAction.Add)
+  post(ctx: StateContext<KeepStateModel>, action: KeepAction.Add) {
+    const keep = action.payload
+    return this.keepService.add(keep).pipe(
+      finalize(() => {
+        ctx.dispatch(new KeepAction.Load)
+      })
+    )
   }
 
 }

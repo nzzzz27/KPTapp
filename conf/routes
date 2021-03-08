@@ -1,4 +1,5 @@
 GET     /kpt/keep                          presentation.KeepController.index()
+GET     /kpt/keep/post                     presentation.KeepController.post()
 GET     /kpt/problem                       presentation.ProblemController.index()
 GET     /kpt/try                           presentation.TryController.index()
 

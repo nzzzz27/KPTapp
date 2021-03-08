@@ -22,4 +22,22 @@ class KeepController @Inject()(
     import presentation.json.writes._
     Ok(Json.toJson(jsValueSeq))
   }}
+
+  def post() = Action { implicit req =>
+    import presentation.json.reads._
+    req.body.asJson.map {json =>
+      println("ok" + json)
+        Ok("ok")
+      // println(json)
+    }.getOrElse(BadRequest("Missing"))
+    // req.body.validate[KeepJson] match {
+    //   case data: KeepJson => {
+    //     println("aa")
+    //     Ok("ok")
+    //   }
+    //   case _ => {
+    //     Ok("not ok")
+    //   }
+    // }
+  }
 }
